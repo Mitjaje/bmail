@@ -10,8 +10,9 @@
             <div class="alert-success">Message sent: {{sporocilo.tekst}} </div>
             <button class="btn btn-info btn-lg" href="index.html">Home</button>
         {% else %}
-            <textarea name="tekst" class="form-control"></textarea>
+           <div><textarea name="tekst" class="form-control"></textarea></div>
             <button class="btn btn-info btn-lg" type="submit">Pošlji</button>
+            <button class="btn btn-info btn-lg" href="index.html">Back</button>
         {% endif %}
     </form>
 </body>
