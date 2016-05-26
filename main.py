@@ -45,6 +45,9 @@ class MainHandler(BaseHandler):
 
             params = {"logiran": logiran, "login_url": login_url, "user": user}
 
+        sporocila = Sporocilo.query().order(-Sporocilo.cas).fetch()
+        params["sporocila"] = sporocila
+
         return self.render_template("index.html", params)
 
      def post(self):

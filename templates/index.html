@@ -16,13 +16,17 @@
       <li role="presentation"><a href="/sent">Sent</a></li>
       <li role="presentation"><a href="/new">New message</a></li>
       <li role="presentation"><a href="{{logout_url}}">Sign out</a></li>
-      {% for sporocilo in sporocila %}
-        <section class="alert alert-warning">
-            <p>{{ sporocilo.uporabnik }} ({{ sporocilo.cas }})</p>
-            <p>{{ sporocilo.tekst }}</p>
-        </section>
-      {% endfor %}
   </ul>
+      {% for sporocilo in sporocila %}
+      <div class="row">
+          <div class="col-sm-4">
+            <section class="alert alert-warning">
+                <p>{{ sporocilo.uporabnik }} ({{ sporocilo.cas }})</p>
+                <p>{{ sporocilo.tekst }}</p>
+            </section>
+          </div>
+      </div>
+      {% endfor %}
 {% else %}
     <div class="jumbotron">
          <div class="container">
