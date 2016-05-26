@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bmail</title>
+
+   <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+{% if logiran %}
+  <ul class="nav nav-pills">
+      <li role="presentation" class="active"><a href="/inbox">Inbox</a></li>
+      <li role="presentation"><a href="/sent">Sent</a></li>
+      <li role="presentation"><a href="/new">New message</a></li>
+      <li role="presentation"><a href="{{logout_url}}">Sign out</a></li>
+      {% for sporocilo in sporocila %}
+        <section class="alert alert-warning">
+            <p>{{ sporocilo.uporabnik }} ({{ sporocilo.cas }})</p>
+            <p>{{ sporocilo.tekst }}</p>
+        </section>
+      {% endfor %}
+  </ul>
+{% else %}
+    <div class="jumbotron">
+         <div class="container">
+            <h1>Bmail</h1>
+            <p><a class = "btn btn-primary btn-lg" href = "{{login_url}}">Sign in</a></p>
+          <!--  <p><a class="btn btn-primary btn-lg"  data-toggle="modal" data-target="#myModal">Sign in</a></p> -->
+       </div>
+    </div>
+{% endif %}
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content modal-sm">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Enter login details:</h4>
+      </div>
+      <div class="modal-body">
+        <form role="form">
+            <div class="form-group">
+              <label for="usrname"><span class="glyphicon glyphicon-user"></span> Username</label>
+              <input type="text" class="form-control" id="usrname" placeholder="Enter email">
+            </div>
+            <div class="form-group">
+              <label for="psw"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
+              <input type="text" class="form-control" id="psw" placeholder="Enter password">
+            </div>
+            <div class="checkbox">
+              <label><input type="checkbox" value="" checked>Remember me</label>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block"><span class="glyphicon glyphicon-off"></span> Login</button>
+          </form>
+      </div>
+      <div class="modal-footer">
+
+      </div>
+
+    </div>
+
+  </div>
+</div>
+</body>
+</html>
